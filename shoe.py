@@ -5,7 +5,7 @@ class Shoe:
    values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 0,
                'J': 0, 'Q': 0, 'K': 0, 'A': 1}
    
-   def __init__(self, numDecks):
+   def __init__(self, numDecks=6):
       self.numDecks = numDecks
       self.deck = self.createDeck()
       self.shuffle()
@@ -14,7 +14,7 @@ class Shoe:
       deck = []
       for _ in range(self.numDecks * 4):
          for card in self.cards:
-            deck.append((card, self.values[card]))
+            deck.append(card)
       return deck
       
    def dealCard(self):
@@ -30,4 +30,4 @@ class Shoe:
       return self.values[card]
    
    def remainingCards(self):
-      return len(self.deck) * 100 / (self.numDecks * 52)
+      return len(self.deck)
